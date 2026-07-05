@@ -1,0 +1,53 @@
+body {
+    background-color: #2cd1f2;
+}
+.container {
+    border: solid black;
+    border-radius: 10px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: powderblue;
+    max-width: 600px;
+}
+
+#weather-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto 1fr;
+}
+
+#location {
+    grid-column: 1 / span 2;
+    grid-row: 1;
+    text-align: center;
+}
+
+#main-temperature {
+    grid-row: 2;
+    grid-column: 1;
+    text-align: center;
+}
+
+#weather-description {
+    display: flex;
+    grid-row: 2;
+    grid-column: 2;
+    justify-content: center;
+    align-items: center;
+}
+
+#weather-details {
+    display: grid;
+    justify-content: center;
+    gap: 10px;
+    grid-row: 3;
+    grid-column: 1/span 2;
+}
+
+
+#get-weather-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
