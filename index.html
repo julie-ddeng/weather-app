@@ -8,14 +8,13 @@
     </head>
 
     <body>
+        <div id="project--title" class="container">
+            <h1>Current Forecasts in Canada</h1>
+        </div>
         <div id="weather-info" class="container">
             <h2 id="location"></h2>
-            <h3 id="main-temperature"></h3>
-            <div id="weather-description">
-                <h3 id="weather-main"></h3>
-                <img id="weather-icon">
-            </div>
-            
+            <h3 id="main-temperature" class="main-info"></h3>
+            <h3 id="weather-main" class="main-info"></h3>
             
             <div id="weather-details">
                 <div id="feels-like"></div>
@@ -25,17 +24,10 @@
             </div>
         </div>
 
-        <div id="get-weather-container" class="container"> Weather for:
-            <select id="dropDown">
-                <option value=""></option>
-                <option value="new york">New York</option>            
-                <option value="los angeles">Los Angeles</option>
-                <option value="chicago">Chicago</option>
-                <option value="paris">Paris</option>
-                <option value="tokyo">Tokyo</option>                
-                <option value="london">London</option>
-            </select>
-            <button id="get-weather-btn">Get weather! </button>
+        <div id="get-weather-container" class="container"> 
+            <label for="city-input">Enter a city in Canada:</label>
+            <input type="text" id="city-name" name="city">
+            <button id="get-weather-btn">Get weather!</button>
         </div>
 
     <script src="script.js"></script>

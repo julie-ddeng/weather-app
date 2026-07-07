@@ -10,10 +10,14 @@ body {
     max-width: 600px;
 }
 
+.container h1 {
+    text-align: center;
+}
+
 #weather-info {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto auto 1fr;
+    grid-template-rows: auto 1fr 2fr;
 }
 
 #location {
@@ -22,24 +26,22 @@ body {
     text-align: center;
 }
 
-#main-temperature {
+#main-temperature{
     grid-row: 2;
     grid-column: 1;
     text-align: center;
 }
 
-#weather-description {
-    display: flex;
+#weather-main {
     grid-row: 2;
     grid-column: 2;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
 }
 
 #weather-details {
     display: grid;
     justify-content: center;
-    gap: 10px;
+    gap: 20px;
     grid-row: 3;
     grid-column: 1/span 2;
 }
