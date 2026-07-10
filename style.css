@@ -46,8 +46,7 @@ body {
     grid-column: 1/span 2;
 }
 
-
-#get-weather-container {
+#get-weather-container, #search-history {
     display: flex;
     justify-content: center;
     align-items: center;

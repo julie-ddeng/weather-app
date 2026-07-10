@@ -35,4 +35,4 @@ A simple JavaScript weather app to look up real-time weather information for Can
 - Add a loading indicator (asynchronous UI)
 - Build a more responsive design for mobile
 - Add 7-day forecast
-- Add recent searches and improve search capacity
+- Add search autocomplete to provide users with faster city selection.

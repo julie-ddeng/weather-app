@@ -93,21 +93,52 @@ const humidity = document.getElementById("humidity");
 const windSpeed = document.getElementById("wind");
 const windGust = document.getElementById("wind-gust");
 
+let historyArray = JSON.parse(localStorage.getItem("searchHistory")) || [];
+
+function addToHistory(city){
+    historyArray = historyArray.filter(item => item !== city);
+    historyArray.unshift(city);
+
+    historyArray = historyArray.slice(0, 5);
+
+    localStorage.setItem("searchHistory", JSON.stringify(historyArray));
+}
+
+
+let searchHistory = document.getElementById("search-history");
+
+function loadHistory(){
+    searchHistory.innerHTML = "<h4>Recent Searches: </h4>";
+
+    historyArray.forEach(city => {
+        const button = document.createElement("button");
+        button.textContent = city;
+
+        button.addEventListener("click", () => showWeather(city));
+
+        searchHistory.appendChild(button);
+    });
+
+}
+
 
 async function showWeather(city){
     if(city === "") {
-        alert("Please enter a city name.")
+        alert("Please enter a city name.");
         return null;
     }
 
     const result = await getWeather(city);
 
     if(!result){
-        alert("City not found.")
+        alert("City not found.");
         return null;
     }
     
     const {data, name} = result;
+
+    addToHistory(name);
+    loadHistory();
 
     cityName.textContent = name;
     mainWeather.textContent = weatherCodes[data.current.weather_code] ?? "Unknown Weather";
@@ -117,10 +148,12 @@ async function showWeather(city){
     windSpeed.textContent = `Wind: ${data.current.wind_speed_10m} km/h`;
     windGust.textContent = `Gusts: ${data.current.wind_gusts_10m} km/h`;
     
+    cityInputBox.value = "";
 }
 
+loadHistory();
 
-getWeatherBtn.addEventListener("click", () => showWeather(cityInputBox.value.trim()));
+getWeatherBtn.addEventListener("click", () => showWeather(cityInputBox.value.trim().toLowerCase()));
 
 cityInputBox.addEventListener("keydown", event => {
     if(event.key === "Enter"){
